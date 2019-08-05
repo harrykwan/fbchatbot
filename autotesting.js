@@ -2,7 +2,7 @@
 
 //get message frd list (expand)
 var frdlistjson = {};
-var expandtimes = 5;
+var expandtimes_frd = 5;
 
 function getallname(){
 	var mymessagelist = document.getElementsByClassName("_55wp _7om2 _5b6o _67ix _2ycx acw del_area async_del abb touchable _592p _25mv");
@@ -11,8 +11,8 @@ function getallname(){
 	var mywaitfunc = setInterval(function(){
 		if (mymessagelist.length>oldlength){
 			clearInterval(mywaitfunc);
-			expandtimes--;
-			if (expandtimes>0){
+			expandtimes_frd--;
+			if (expandtimes_frd>0){
 				getallname();
 			} else {
 				for (var j=0; j<mymessagelist.length; j++){
@@ -27,28 +27,19 @@ function getallname(){
 		} 
 	}, 500);
 }
-getallname();
-
-
-
-
 
 
 
 
 //get into chat room
-var chosenfrd = "Cynthia Ka Yi"
-frdlistjson[chosenfrd].dom.getElementsByTagName("a")[0].click()
-
-
-
-
-
+function choosefrd(chosenfrd){
+	frdlistjson[chosenfrd].dom.getElementsByTagName("a")[0].click()
+}
 
 
 
 //expand messages
-var expandtimes = 5;
+var expandtimes_message = 5;
 var mychatlist = document.getElementsByClassName("voice acw");
 var mychatrecord = [];
 
@@ -56,8 +47,8 @@ function getallmessage(){
 	if (document.getElementsByClassName("_2so _2sq _2ss img _50cg async_throbber async_saving_visible")[0])
 		document.getElementsByClassName("_2so _2sq _2ss img _50cg async_throbber async_saving_visible")[0].click()
 	var mywaitfunc = setTimeout(function(){
-		if (expandtimes>0&&document.getElementsByClassName("_2so _2sq _2ss img _50cg async_throbber async_saving_visible")[0]){
-			expandtimes--;
+		if (expandtimes_message>0&&document.getElementsByClassName("_2so _2sq _2ss img _50cg async_throbber async_saving_visible")[0]){
+			expandtimes_message--;
 			getallmessage();
 		} else {
 			for (var j=0; j<mychatlist.length; j++){
@@ -77,22 +68,45 @@ function getallmessage(){
 	}, 500);
 	
 }
-getallmessage();
-
-
-
-
-
-
 
 
 
 
 //send
-var mymessage = "hi"
-document.getElementById('composerInput').value = mymessage
-var testkey = new KeyboardEvent("keydown", {
-    bubbles: true, cancelable: true, keyCode: 13
-});
-document.getElementById('composerInput').dispatchEvent(testkey);
-document.getElementsByTagName("button")[2].click()
+function sendmessage(mymessage){
+	document.getElementById('composerInput').value = mymessage
+	var testkey = new KeyboardEvent("keydown", {
+	    bubbles: true, cancelable: true, keyCode: 13
+	});
+	document.getElementById('composerInput').dispatchEvent(testkey);
+	document.getElementsByTagName("button")[2].click()
+}
+
+
+
+
+
+getallname();
+choosefrd("Cynthia Ka Yi")
+getallmessage();
+sendmessage("hi")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
