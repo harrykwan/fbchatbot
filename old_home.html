@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+  opacity: .8;
+}
+
+.sidebaropen {
+    width: 160px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover{
+  color: #f1f1f1;
+  border-left: 2px solid #f1f1f1;
+}
+
+.sidebarcurrent {
+    color: #f1f1f1;
+}
+
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.tree,
+.tree ul,
+.tree li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.tree {
+    margin: 0 0 1em;
+    text-align: center;
+}
+
+.tree,
+.tree ul {
+    display: table;
+}
+
+.tree ul {
+    width: 100%;
+}
+
+.tree li {
+    display: table-cell;
+    padding: .5em 0;
+    vertical-align: top;
+}
+
+.tree li:before {
+    outline: solid 1px #666;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.tree li:first-child:before {
+    left: 50%;
+}
+
+.tree li:last-child:before {
+    right: 50%;
+}
+
+.tree code,
+.tree span {
+    border: solid .1em #666;
+    border-radius: .2em;
+    display: inline-block;
+    margin: 0 .2em .5em;
+    padding: .2em .5em;
+    position: relative;
+}
+
+.tree ul:before,
+.tree code:before,
+.tree span:before {
+    outline: solid 1px #666;
+    content: "";
+    height: .5em;
+    left: 50%;
+    position: absolute;
+}
+
+.tree ul:before {
+    top: -.5em;
+}
+
+.tree code:before,
+.tree span:before {
+    top: -.55em;
+}
+
+.tree>li {
+    margin-top: 0;
+}
+
+.tree>li:before,
+.tree>li:after,
+.tree>li>code:before,
+.tree>li>span:before {
+    outline: none;
+}
+</style>
+</head>
+<body>
+<div onclick="togglemenu()" style="z-index: 999; position: fixed; top: 0; left: 0; background: #111;color: #AAA; padding: 6px 20px; opacity: .8;"><i class="fa fa-align-justify"></i></div>
+<div class="sidebar" style="padding-top: 40px;">
+  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="#sales"><i class="fa fa-fw fa-user"></i> Sales <span style="padding-left: 30px;">Process</span></a>
+  <a href="#chatbot"><i class="fa fa-fw fa-comment"></i> Chatbot</a>
+  <a href="#lead"><i class="fa fa-external-link fa-fw"></i> Lead <span style="padding-left: 30px;">Retrieval</span></a>
+  <a href="#costomer"><i class="fa fa-database fa-fw"></i> Costomer <span style="padding-left: 30px;">Database</span></a>
+  <a href="#settingr"><i class="fa fa-fw fa-credit-card"></i> Settings</a>
+</div>
+
+<div class="main">
+  <h2>Sidebar with Icons</h2>
+  <p>This side navigation is of full height (100%) and always shown.</p>
+  <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+
+  
+</div>
+
+<ul class="tree">
+    <li> <span>Home</span>
+      <ul>
+        <li> <span>About us</span>
+          <ul>
+            <li> <span>Our history</span>
+              <ul>
+                <li><span>Founder</span></li>
+              </ul>
+            </li>
+            <li> <span>Our board</span>
+              <ul>
+                <li><span>Brad Whiteman</span></li>
+                <li><span>Cynthia Tolken</span></li>
+                <li><span>Bobby Founderson</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li> <span>Our products</span>
+          <ul>
+            <li> <span>The Widget 2000™</span>
+              <ul>
+                <li><span>Order form</span></li>
+              </ul>
+            </li>
+            <li> <span>The McGuffin V2</span>
+              <ul>
+                <li><span>Order form</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li> <span>Contact us</span>
+          <ul>
+            <li> <span>Social media</span>
+              <ul>
+                <li><span>Facebook</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+
+
+
+<script>
+
+function start(){
+    var sidebara = document.getElementsByClassName('sidebar')[0].getElementsByTagName('a');
+    for (var j=0; j<sidebara.length; j++){
+        sidebara[j].onclick = function(){
+            console.log(this)
+            this.classList.add("sidebarcurrent")
+        }
+    }
+    
+}
+
+start()
+
+function togglemenu(){
+    if (document.getElementsByClassName('sidebar')[0].classList.contains("sidebaropen"))
+    document.getElementsByClassName('sidebar')[0].classList.remove("sidebaropen")
+    else
+    document.getElementsByClassName('sidebar')[0].classList.add("sidebaropen")
+}
+
+</script>
+
+
+
+</body>
+</html> 
