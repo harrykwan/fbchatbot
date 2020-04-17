@@ -7,7 +7,8 @@ document.getElementById("monpostbutton").onclick = function(){
         stoppostmon()
         this.innerHTML = 'Start Post Monitor'
     }
-    
+    // setchromevalue('action','chatbot')
+    chrome.runtime.sendMessage({data: "checkbackground"})
 }
 
 document.getElementById("sendmessagebutton").onclick = function(){
@@ -48,7 +49,7 @@ function startpostmon(){
  function getactionstatus(){
     chrome.storage.sync.get(['action'], function(result) {
         console.log('action status currently is ' + result.action);
-        document.getElementById("monpostbutton").innerHTML = 'Start Post Monitor'
+        document.getElementById("monpostbutton").innerHTML = 'Start Chat Bot'
         if (result.action=='monpost'){
             document.getElementById("monpostbutton").innerHTML = 'Done'
         }

@@ -1,3 +1,5 @@
+import { settings } from "cluster";
+
 //	https://m.facebook.com/messages/
 
 // https://m.facebook.com/ufi/reaction/profile/browser/?ft_ent_identifier=
@@ -67,6 +69,7 @@ function getallname(){
 				getallname();
 			} else {
 				for (var j=0; j<mymessagelist.length; j++){
+					console.log(mymessagelist[j].parentNode.innerText)
 					frdlistjson[mymessagelist[j].innerText.split("\n")[0]] = {};
 					frdlistjson[mymessagelist[j].innerText.split("\n")[0]].dom = mymessagelist[j];
 					frdlistjson[mymessagelist[j].innerText.split("\n")[0]].time = mymessagelist[j].innerText.split("\n")[2];
@@ -139,11 +142,28 @@ function sendmessage(mymessage){
 //search
 function search(x){
 	document.getElementsByTagName('a')[4].click()
-	document.getElementById('main-search-input').value = "ven bot"
+	document.getElementById('main-search-input').value = x//"ven bot"
 	var testkey = new KeyboardEvent("keydown", {
 	    bubbles: true, cancelable: true, keyCode: 13
 	});
 	document.getElementById('main-search-input').dispatchEvent(testkey)
+}
+
+
+//self profile
+function gotomyprofile(){
+	document.getElementsByTagName('a')[5].click()
+	var myinterval = setInterval(() => {
+		var alla = document.getElementsByTagName("a")
+		for (var j=0; j<alla.length; j++){
+			if (alla[j].href.indexOf("?ref=bookmarks")!=-1){
+				console.log(alla[j].click());
+				clearInterval(myinterval)
+				break;
+			}
+		}
+	}, 500);
+	
 }
 
 
